@@ -1,0 +1,191 @@
+@import "tailwindcss";
+
+/* -------------------------------------------------------------------------- */
+/* Design tokens — Landing Page V.2 (Stitch: Unified Neon Green Home)          */
+/* -------------------------------------------------------------------------- */
+@theme {
+  /* Fonts (also loaded in index.html) */
+  --font-headline: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-label: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Crimson Pro", ui-serif, Georgia, serif;
+
+  /* Sharp “architectural” radii (matches Stitch export) */
+  --radius-DEFAULT: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-full: 9999px;
+
+  /* Surface & content tokens */
+  --color-primary: #c6c6c7;
+  --color-inverse-surface: #fcf8f8;
+  --color-on-error: #490013;
+  --color-secondary-container: #3a3c3c;
+  --color-surface-container-low: #131313;
+  --color-surface-container-high: #1f2020;
+  --color-tertiary-fixed: #f6f3f2;
+  --color-on-secondary: #1f2021;
+  --color-error-dim: #b95463;
+  --color-on-primary: #3f4041;
+  --color-on-secondary-fixed-variant: #5b5c5c;
+  --color-on-tertiary-fixed: #4a4949;
+  --color-tertiary-dim: #edeaea;
+  --color-outline: #767575;
+  --color-tertiary-container: #edeaea;
+  --color-on-surface-variant: #acabaa;
+  --color-on-error-container: #ff97a3;
+  --color-surface-container-highest: #252626;
+  --color-on-tertiary-fixed-variant: #676666;
+  --color-secondary-fixed-dim: #d5d4d4;
+  --color-surface-container: #191a1a;
+  --color-primary-fixed: #e2e2e2;
+  --color-tertiary-fixed-dim: #e7e5e4;
+  --color-secondary: #9e9e9e;
+  --color-secondary-dim: #9e9e9e;
+  --color-surface-dim: #0e0e0e;
+  --color-on-surface: #e7e5e4;
+  --color-surface-bright: #2c2c2c;
+  --color-surface-container-lowest: #000000;
+  --color-background: #0e0e0e;
+  --color-error: #ec7c8a;
+  --color-inverse-on-surface: #565554;
+  --color-primary-container: #454747;
+  --color-surface: #0e0e0e;
+  --color-error-container: #7f2737;
+  --color-on-secondary-container: #bfbfbf;
+  --color-tertiary: #fcf9f8;
+  --color-outline-variant: #484848;
+  --color-on-background: #e7e5e4;
+  --color-on-primary-fixed: #3e4040;
+  --color-on-secondary-fixed: #3e3f40;
+  --color-inverse-primary: #5e5f60;
+  --color-primary-dim: #b8b9b9;
+  --color-on-tertiary: #605f5f;
+  --color-secondary-fixed: #e3e2e2;
+  --color-surface-tint: #c6c6c7;
+  --color-on-primary-container: #d0d0d0;
+  --color-primary-fixed-dim: #d4d4d4;
+  --color-on-tertiary-container: #575656;
+  --color-surface-variant: #252626;
+  --color-on-primary-fixed-variant: #5a5c5c;
+  --color-brand-highlight: #72ff70;
+}
+
+@layer components {
+  .material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    vertical-align: middle;
+  }
+
+  .liquid-metal-gradient {
+    background: linear-gradient(135deg, #c6c6c7 0%, #454747 100%);
+  }
+
+  .glass-panel {
+    background: rgba(31, 32, 32, 0.6);
+    backdrop-filter: blur(20px);
+  }
+
+  .flowchart-watermark {
+    background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCwQ9uXmaaZUvL0f_ruPLPHrutv0vB-qHlJTHUUFw8-7frIWGLN7m-eNgSyBxzWsbMCCru1UVVPfAfaNdWeDdXOhZW8LJEGiZ_DOUhQ3FQvl9o4_8sGRmyULHq-YQGGi2PAR_P_uDdyWPl_gCuOzj_ioPlyFWNkTrxkyPT4DBkCu5eapRAtxIXH8d_NBfGKdmSstXYfh0kLXRWq3TBwLM5recA9F0RUeYQCFoGCqmqy1j9gIsEIUavHGxoHf_Mu803EU-Y7a2wUaw");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.03;
+    mix-blend-mode: overlay;
+  }
+
+  .border-brutal {
+    border: 2px solid rgba(72, 72, 72, 0.5);
+  }
+
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary {
+    list-style: none;
+    cursor: pointer;
+  }
+
+  details[open] .expand-icon {
+    transform: rotate(180deg);
+  }
+
+  .accordion-indicator {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--color-brand-highlight);
+    opacity: 0;
+    transition:
+      opacity 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  details[open] .accordion-indicator {
+    opacity: 1;
+    box-shadow: 0 0 15px 2px rgba(114, 255, 112, 0.6);
+  }
+
+  details[open] .group-open\:bg-brand-highlight {
+    background-color: var(--color-brand-highlight) !important;
+    box-shadow: 0 0 20px 2px rgba(114, 255, 112, 0.4);
+  }
+
+  @keyframes pulse-glow {
+    0% {
+      box-shadow: 0 0 0 0 rgba(114, 255, 112, 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(114, 255, 112, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(114, 255, 112, 0);
+    }
+  }
+
+  .pulse-animation {
+    animation: pulse-glow 2s infinite;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+      opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Solutions Page V.2 (Stitch) */
+  .active-halo {
+    text-shadow:
+      0 0 15px rgba(114, 255, 112, 0.8),
+      0 0 30px rgba(114, 255, 112, 0.4);
+  }
+
+  .neon-glow {
+    box-shadow: 0 0 20px 2px rgba(114, 255, 112, 0.4);
+  }
+}
+
+@layer base {
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-background);
+    color: var(--color-on-surface);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-headline);
+  }
+}

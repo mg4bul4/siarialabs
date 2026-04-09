@@ -1,0 +1,7 @@
+/** Remote assets from the Stitch “Streamlined Hero” export — replace with local `/public` paths when ready. */
+
+export const IMG_HERO_DASHBOARD =
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuCjVlKTHd2kAjqTA0Tjewg8k7eRTZbgSD-cGD8L5-WLz42G6r4OFy8OuQMPuv_kR7ilHjPptdnninxnbMzmstu4eD1H4jD-Kvpb6aRQnIaM9YtFaGoeJ6m9S9UEZ3IoAJhmC2sLKrR-WMaE4RNvRg7Y3NVk5ZYlF_NAuYEDZ7TAWRL2EV7iAasb67eXqQKI8i-0cYqTXKnH56mWGWsHJ4h6JX_NkfgbARsEn5iEEwNgKeYo3qAlB3SnVsmCVIgBeG0-BrOAPqPUHQ";
+
+export const IMG_MANIFESTO_HANDS =
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuDhZmg9QRVQ42aDXjmLaiu0iePECkneqMj0_rus5Gc7id8yAN7lS6W2kxa1ss5T0LWY0HEJa2uQuQv2_bT4qbxxjoPPVy6X4P5UyIvzVPYwScMqM-CYGPUsBblp0K-4Ctdowcu7NUBhoz0Y1phb5aw-IFJPPjbZj6sI8cCIo1AvN_qWb-p_fo28tRYCk77yJNLE66pOwFh7BL77Sk4g11Q79vsYU_ZtoMIvZA8Lfk1ynhROeb71mmLtgfwO87CkR51z7VVW1apDcw";
