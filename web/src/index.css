@@ -194,4 +194,14 @@
   h3 {
     font-family: var(--font-headline);
   }
+
+  /* Respect user motion preferences — pause background video */
+  @media (prefers-reduced-motion: reduce) {
+    video {
+      animation: none !important;
+    }
+    video[autoplay] {
+      animation-play-state: paused;
+    }
+  }
 }
