@@ -1,10 +1,11 @@
 {
-  "name": "your-project-name",
+  "name": "siarialabs",
+  "private": true,
   "version": "1.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "npm run dev --prefix web",
+    "build": "npm run build --prefix web",
+    "preview": "npm run preview --prefix web"
   },
   "dependencies": {
     "react": "^18.0.0",
