@@ -183,10 +183,15 @@
 }
 
 @layer base {
+  html {
+    overscroll-behavior: none;
+  }
+
   body {
     font-family: var(--font-body);
     background-color: var(--color-background);
     color: var(--color-on-surface);
+    overscroll-behavior: none;
   }
 
   h1,

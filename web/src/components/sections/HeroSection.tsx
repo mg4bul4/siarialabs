@@ -28,7 +28,7 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_40%,_rgba(114,255,112,0.04)_0%,_transparent_65%)]" />
 
       {/* ── Content ──────────────────────────────────────────────────── */}
-      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col items-start px-12 py-32">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col items-start px-12 pb-32 pt-40">
         {/* Eyebrow badge */}
         <div className="mb-8 inline-flex items-center gap-2 border border-outline-variant/30 bg-black/40 px-3 py-1 backdrop-blur-sm">
           <span className="h-2 w-2 rounded-full bg-brand-highlight" />

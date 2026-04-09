@@ -8,7 +8,7 @@ import { Footer } from "@/components/layout/Footer";
 export default function HomePage() {
   return (
     <>
-      <main className="pt-24">
+      <main>
         <HeroSection />
         <ManifestoSection />
         <CapabilitiesAccordionSection />
