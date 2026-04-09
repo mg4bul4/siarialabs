@@ -53,7 +53,7 @@ export function HeroSection() {
         {/* CTAs */}
         <div className="flex flex-wrap items-center gap-4">
           <NeonPulseButton href="/solutions" className="flex items-center gap-2 px-8 py-4 text-lg">
-            Fix Your Presence
+            Let's Go
             <MaterialIcon name="arrow_forward" />
           </NeonPulseButton>
           <NeonPulseButton

@@ -38,7 +38,7 @@ export default function SolutionsPage() {
                 type="button"
                 className="font-headline rounded-lg bg-[#72FF70] px-10 py-5 text-lg font-bold uppercase tracking-tighter text-surface-container-lowest neon-glow transition-all hover:brightness-110"
               >
-                Fix Your Presence
+                Let's Go
               </button>
             </div>
           </div>
@@ -235,7 +235,7 @@ export default function SolutionsPage() {
                 type="button"
                 className="font-headline rounded-lg bg-[#72FF70] px-12 py-6 text-xl font-black uppercase tracking-tighter text-surface-container-lowest neon-glow transition-all hover:brightness-110 active:scale-95"
               >
-                Fix Your Presence
+                Let's Go
               </button>
             </div>
             <p className="font-body mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-on-surface-variant opacity-80 md:text-xl">

@@ -10,9 +10,10 @@ export function ManifestoSection() {
   return (
     <section
       ref={ref}
-      className={`${revealClass} flex flex-col items-stretch overflow-hidden bg-[#000000] lg:flex-row`}
+      className={`${revealClass} flex h-screen flex-col overflow-hidden bg-[#000000] lg:flex-row`}
     >
-      <div className="relative aspect-square w-full overflow-hidden lg:w-[60%]">
+      {/* Image — fills exactly half the screen width, full section height */}
+      <div className="relative h-1/2 w-full flex-shrink-0 overflow-hidden lg:h-full lg:w-1/2">
         <div className="absolute left-0 top-0 z-20 h-full w-px bg-brand-highlight" />
         <img
           src={IMG_MANIFESTO_HANDS}
@@ -21,31 +22,29 @@ export function ManifestoSection() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
       </div>
-      <div className="flex w-full flex-col justify-center bg-[#0e0e0e] px-12 md:px-20 lg:w-[40%] lg:px-24" style={{ paddingBlock: "var(--spacing-section-lg)" }}>
-        <div className="max-w-2xl">
-          <EyebrowLabel className="mb-10 block">The Siaria Standard</EyebrowLabel>
-          <h2 className="font-headline mb-12 text-5xl font-extrabold leading-[1.05] tracking-tighter text-tertiary md:text-6xl">
-            Ambitious visions require meticulous execution.
-          </h2>
-          <p className="font-body mb-16 max-w-md text-base leading-relaxed text-on-surface-variant">
-            Most companies have ambition. Few have structure. We break down how your business is perceived,
-            where it fails, and what it takes to win your space.
-          </p>
-          <div className="group flex items-center gap-6">
-            <div className="flex items-center gap-4">
-              <div className="relative flex h-12 w-12 items-center justify-center overflow-hidden border border-brand-highlight/30 transition-all group-hover:bg-brand-highlight/10">
-                <div className="absolute inset-0 rotate-45 scale-75 border-[0.5px] border-on-surface/10" />
-                <div className="h-1.5 w-1.5 rounded-full bg-brand-highlight" />
-              </div>
-              <div className="h-px w-12 bg-outline-variant/30" />
-              <Link
-                className="text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface/60 transition-colors hover:text-brand-highlight"
-                to="/solutions"
-              >
-                See how we work
-              </Link>
-            </div>
+
+      {/* Content — fills the other half, vertically centered */}
+      <div className="flex flex-1 flex-col justify-center bg-[#0e0e0e] px-12 md:px-16 lg:px-20">
+        <EyebrowLabel className="mb-8 block">The Siaria Standard</EyebrowLabel>
+        <h2 className="font-headline mb-8 text-4xl font-extrabold leading-[1.05] tracking-tighter text-tertiary md:text-5xl">
+          Ambitious visions require meticulous execution.
+        </h2>
+        <p className="font-body mb-10 max-w-md text-base leading-relaxed text-on-surface-variant">
+          Most companies have ambition. Few have structure. We break down how your business is perceived,
+          where it fails, and what it takes to win in your space.
+        </p>
+        <div className="group flex items-center gap-4">
+          <div className="relative flex h-12 w-12 flex-shrink-0 items-center justify-center overflow-hidden border border-brand-highlight/30 transition-all group-hover:bg-brand-highlight/10">
+            <div className="absolute inset-0 rotate-45 scale-75 border-[0.5px] border-on-surface/10" />
+            <div className="h-1.5 w-1.5 rounded-full bg-brand-highlight" />
           </div>
+          <div className="h-px w-12 bg-outline-variant/30" />
+          <Link
+            className="text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface/60 transition-colors hover:text-brand-highlight"
+            to="/solutions"
+          >
+            See how we can help
+          </Link>
         </div>
       </div>
     </section>

@@ -16,7 +16,7 @@ export function CtaSection() {
           </p>
           <div className="flex flex-col items-center justify-center gap-4 md:flex-row">
             <NeonPulseButton href="/solutions" className="w-full px-10 py-5 text-xl md:w-auto">
-              Fix Your Presence
+              Let's Go
             </NeonPulseButton>
             <NeonPulseButton
               href="/solutions"
