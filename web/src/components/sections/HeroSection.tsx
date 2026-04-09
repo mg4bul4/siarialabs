@@ -3,8 +3,9 @@ import { NeonPulseButton } from "@/components/ui/NeonPulseButton";
 
 export function HeroSection() {
   return (
-    <section className="reveal active relative flex min-h-screen w-full items-center justify-center overflow-hidden">
+    <section className="reveal active relative flex w-full items-center justify-center overflow-hidden" style={{ height: "100dvh" }}>
       {/* ── Video background ─────────────────────────────────────────── */}
+      {/* fixed + inset-0 fills the true viewport including behind the nav */}
       <video
         className="absolute inset-0 h-full w-full object-cover"
         style={{ willChange: "transform" }}
@@ -13,21 +14,17 @@ export function HeroSection() {
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="auto"
         aria-hidden="true"
       />
 
-      {/* ── Overlay stack (bottom-up) ────────────────────────────────── */}
-      {/* 1. Dark base — kills raw brightness */}
+      {/* ── Overlay stack ────────────────────────────────────────────── */}
       <div className="absolute inset-0 bg-black/60" />
-      {/* 2. Radial vignette — darkens edges, draws eye to center */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_30%,_rgba(0,0,0,0.55)_100%)]" />
-      {/* 3. Bottom fade — blends into the next section */}
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#0e0e0e] to-transparent" />
-      {/* 4. Subtle brand-green radial pulse — ties video to brand palette */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_40%,_rgba(114,255,112,0.04)_0%,_transparent_65%)]" />
 
-      {/* ── Content ──────────────────────────────────────────────────── */}
+      {/* ── Content — top padding clears the fixed nav ───────────────── */}
       <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col items-start px-12 pb-32 pt-40">
         {/* Eyebrow badge */}
         <div className="mb-8 inline-flex items-center gap-2 border border-outline-variant/30 bg-black/40 px-3 py-1 backdrop-blur-sm">

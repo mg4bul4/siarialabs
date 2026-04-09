@@ -21,7 +21,7 @@ export function TopNavBar() {
   const { pathname } = useLocation();
 
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-white/5 bg-[#0e0e0e]/90 backdrop-blur-xl">
+    <header className="fixed top-0 z-50 w-full border-b border-white/5 bg-transparent backdrop-blur-md">
       <nav className="mx-auto flex max-w-[1440px] items-center justify-between px-12 py-5">
         {/* Brand */}
         <div className="flex flex-1 justify-start">
