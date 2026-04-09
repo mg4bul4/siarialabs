@@ -1,5 +1,6 @@
 import { MaterialIcon } from "@/components/ui/MaterialIcon";
 import { useRevealOnScroll } from "@/hooks/useRevealOnScroll";
+import { EyebrowLabel } from "@/components/ui/EyebrowLabel";
 
 const CAPABILITIES = [
   {
@@ -29,13 +30,17 @@ export function CapabilitiesGridSection() {
   return (
     <section
       ref={ref}
-      className={`${revealClass} border-t border-outline-variant/10 bg-background px-12 py-32`}
+      className={`${revealClass} border-t border-outline-variant/10 bg-background px-12`}
+      style={{ paddingBlock: "var(--spacing-section-sm)" }}
     >
       <div className="mx-auto max-w-[1440px]">
         <div className="mb-16 flex flex-col items-baseline justify-between gap-6 border-b-2 border-outline-variant/30 pb-12 md:flex-row">
-          <h2 className="text-6xl font-extrabold uppercase tracking-tighter text-tertiary md:text-7xl">
-            Capabilities
-          </h2>
+          <div className="space-y-3">
+            <EyebrowLabel>What we do</EyebrowLabel>
+            <h2 className="text-6xl font-extrabold uppercase tracking-tighter text-tertiary md:text-7xl">
+              Capabilities
+            </h2>
+          </div>
           <p className="max-w-md text-right font-serif text-xl italic text-on-surface-variant">
             What we build is designed to be seen, understood, and chosen.
           </p>
@@ -64,21 +69,17 @@ function CapabilityCard({ icon, title, description, decoration, isLastColumn }: 
 
   return (
     <div
-      className={`group relative overflow-hidden border-outline-variant/30 p-12 transition-all duration-500 hover:bg-brand-highlight ${
+      className={`group relative overflow-hidden border-outline-variant/30 p-12 transition-all duration-300 hover:border-brand-highlight/40 hover:bg-surface-container-high ${
         isLastColumn ? "border-b-2 md:border-b-0" : "border-b-2 md:border-r-2 md:border-b-0"
       }`}
     >
       <MaterialIcon
         name={icon}
-        className="mb-10 text-6xl text-brand-highlight transition-colors group-hover:text-black"
+        className="mb-10 text-6xl text-brand-highlight transition-colors"
         filled
       />
-      <h3 className="mb-6 text-2xl font-extrabold uppercase text-tertiary transition-colors group-hover:text-black">
-        {title}
-      </h3>
-      <p className="text-lg leading-relaxed text-on-surface-variant transition-colors group-hover:text-black/80">
-        {description}
-      </p>
+      <h3 className="mb-6 text-2xl font-extrabold uppercase text-tertiary">{title}</h3>
+      <p className="text-lg leading-relaxed text-on-surface-variant">{description}</p>
       {decorationEl}
     </div>
   );

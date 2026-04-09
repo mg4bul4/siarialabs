@@ -4,7 +4,7 @@ import { NeonPulseButton } from "@/components/ui/NeonPulseButton";
 
 export function HeroSection() {
   return (
-    <section className="reveal active relative mx-auto flex min-h-[921px] max-w-[1440px] items-center overflow-hidden px-12">
+    <section className="reveal active relative mx-auto flex min-h-screen max-w-[1440px] items-center overflow-hidden px-12">
       <div className="z-10 w-full md:w-1/2">
         <div className="mb-8 inline-flex items-center gap-2 rounded-none border border-outline-variant/20 bg-surface-container-high px-3 py-1">
           <span className="h-2 w-2 rounded-full bg-brand-highlight" />
@@ -22,16 +22,16 @@ export function HeroSection() {
           for that, you&apos;re already behind.
         </p>
         <div className="flex items-center gap-4">
-          <NeonPulseButton className="flex items-center gap-2 px-8 py-4 text-lg">
-            FIX YOUR PRESENCE
+          <NeonPulseButton href="/solutions" className="flex items-center gap-2 px-8 py-4 text-lg">
+            Fix Your Presence
             <MaterialIcon name="arrow_forward" />
           </NeonPulseButton>
-          <button
-            type="button"
-            className="rounded-none border border-outline-variant/20 px-8 py-4 text-lg font-bold uppercase transition-all hover:bg-surface-bright"
+          <NeonPulseButton
+            href="/solutions"
+            className="border-outline-variant/60 px-8 py-4 text-lg hover:border-white/40 hover:bg-surface-bright"
           >
-            VIEW SOLUTIONS
-          </button>
+            View Solutions
+          </NeonPulseButton>
         </div>
         <div className="mt-10 text-sm font-light uppercase tracking-[0.3em] text-on-surface/80">
           Built for how modern discovery works. Not how it used to.

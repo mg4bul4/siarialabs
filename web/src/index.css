@@ -69,6 +69,11 @@
   --color-surface-variant: #252626;
   --color-on-primary-fixed-variant: #5a5c5c;
   --color-brand-highlight: #72ff70;
+
+  /* Section spacing scale */
+  --spacing-section-sm: 5rem;
+  --spacing-section-md: 8rem;
+  --spacing-section-lg: 12rem;
 }
 
 @layer components {
@@ -146,7 +151,8 @@
     }
   }
 
-  .pulse-animation {
+  .pulse-animation:hover,
+  .pulse-animation:focus-visible {
     animation: pulse-glow 2s infinite;
   }
 

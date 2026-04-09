@@ -7,6 +7,7 @@ import {
   SOL_IMG_TRANSFORMATION,
 } from "@/constants/solutionsAssets";
 import { RevealDiv, RevealSection } from "@/components/ui/RevealSection";
+import { EyebrowLabel } from "@/components/ui/EyebrowLabel";
 
 export default function SolutionsPage() {
   return (
@@ -35,9 +36,9 @@ export default function SolutionsPage() {
             <div className="pt-6">
               <button
                 type="button"
-                className="font-headline rounded-lg bg-[#72FF70] px-10 py-5 text-lg font-bold uppercase tracking-tighter text-surface-container-lowest neon-glow transition-all hover:scale-105"
+                className="font-headline rounded-lg bg-[#72FF70] px-10 py-5 text-lg font-bold uppercase tracking-tighter text-surface-container-lowest neon-glow transition-all hover:brightness-110"
               >
-                Fix your presence
+                Fix Your Presence
               </button>
             </div>
           </div>
@@ -65,7 +66,7 @@ export default function SolutionsPage() {
           </div>
         </RevealSection>
 
-        <section className="space-y-32 px-6 py-32 md:px-12">
+        <section className="space-y-20 px-6 py-32 md:px-12">
           <RevealDiv className="mx-auto flex max-w-7xl flex-col items-center gap-16 md:flex-row">
             <div className="order-2 w-full md:order-1 md:w-1/2">
               <div className="group relative aspect-video overflow-hidden rounded-xl border border-outline-variant/10 bg-surface-container-high">
@@ -79,9 +80,7 @@ export default function SolutionsPage() {
             </div>
             <div className="order-1 w-full space-y-8 md:order-2 md:w-1/2">
               <div className="space-y-4">
-                <span className="font-headline text-sm font-black uppercase tracking-widest text-[#72FF70]">
-                  Infrastructure
-                </span>
+                <EyebrowLabel>Infrastructure</EyebrowLabel>
                 <h3 className="font-headline text-4xl font-extrabold text-white md:text-6xl">Presence Foundation</h3>
                 <p className="text-on-surface text-xl italic opacity-80">&quot;Where perception is set.&quot;</p>
               </div>
@@ -109,9 +108,7 @@ export default function SolutionsPage() {
           <RevealDiv className="mx-auto flex max-w-7xl flex-col items-center gap-16 md:flex-row">
             <div className="w-full space-y-8 md:w-1/2">
               <div className="space-y-4">
-                <span className="font-headline text-sm font-black uppercase tracking-widest text-[#72FF70]">
-                  Visibility
-                </span>
+                <EyebrowLabel>Visibility</EyebrowLabel>
                 <h3 className="font-headline text-4xl font-extrabold text-white md:text-6xl">Discovery and Growth</h3>
                 <p className="text-on-surface text-xl italic opacity-80">
                   &quot;If you&apos;re not surfaced, you don&apos;t exist.&quot;
@@ -161,9 +158,7 @@ export default function SolutionsPage() {
             </div>
             <div className="order-1 w-full space-y-8 md:order-2 md:w-1/2">
               <div className="space-y-4">
-                <span className="font-headline text-sm font-black uppercase tracking-widest text-[#72FF70]">
-                  Performance
-                </span>
+                <EyebrowLabel>Performance</EyebrowLabel>
                 <h3 className="font-headline text-4xl font-extrabold text-white md:text-6xl">Digital Infrastructure</h3>
                 <p className="text-on-surface text-xl italic opacity-80">&quot;Performance is the baseline.&quot;</p>
               </div>
@@ -191,9 +186,7 @@ export default function SolutionsPage() {
           <RevealDiv className="mx-auto flex max-w-7xl flex-col items-center gap-16 md:flex-row">
             <div className="w-full space-y-8 md:w-1/2">
               <div className="space-y-4">
-                <span className="font-headline text-sm font-black uppercase tracking-widest text-[#72FF70]">
-                  Evolution
-                </span>
+                <EyebrowLabel>Evolution</EyebrowLabel>
                 <h3 className="font-headline text-4xl font-extrabold text-white md:text-6xl">Transformation</h3>
                 <p className="text-on-surface text-xl italic opacity-80">
                   &quot;When incremental fixes aren&apos;t enough.&quot;
@@ -240,9 +233,9 @@ export default function SolutionsPage() {
             <div>
               <button
                 type="button"
-                className="font-headline rounded-lg bg-[#72FF70] px-12 py-6 text-xl font-black uppercase tracking-tighter text-surface-container-lowest neon-glow transition-all hover:scale-110 active:scale-95"
+                className="font-headline rounded-lg bg-[#72FF70] px-12 py-6 text-xl font-black uppercase tracking-tighter text-surface-container-lowest neon-glow transition-all hover:brightness-110 active:scale-95"
               >
-                Fix your presence
+                Fix Your Presence
               </button>
             </div>
             <p className="font-body mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-on-surface-variant opacity-80 md:text-xl">
@@ -258,25 +251,25 @@ export default function SolutionsPage() {
           </div>
           <div className="flex items-center gap-8">
             <a
-              className="font-body text-xs uppercase tracking-widest text-[#454747] transition-colors hover:text-[#c6c6c7]"
+              className="font-body text-xs uppercase tracking-widest text-outline transition-colors hover:text-[#c6c6c7]"
               href="#"
             >
               Privacy Policy
             </a>
             <a
-              className="font-body text-xs uppercase tracking-widest text-[#454747] transition-colors hover:text-[#c6c6c7]"
+              className="font-body text-xs uppercase tracking-widest text-outline transition-colors hover:text-[#c6c6c7]"
               href="#"
             >
               Terms of Service
             </a>
             <a
-              className="font-body text-xs uppercase tracking-widest text-[#454747] transition-colors hover:text-[#c6c6c7]"
+              className="font-body text-xs uppercase tracking-widest text-outline transition-colors hover:text-[#c6c6c7]"
               href="#"
             >
               LinkedIn
             </a>
           </div>
-          <div className="font-body text-xs uppercase tracking-widest text-[#454747]">© 2024 SIARIA LABS.</div>
+          <div className="font-body text-xs uppercase tracking-widest text-outline">© 2025 SIARIA LABS.</div>
         </footer>
       </main>
     </>
