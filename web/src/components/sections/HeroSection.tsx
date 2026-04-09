@@ -46,8 +46,8 @@ export function HeroSection() {
 
         {/* Subhead */}
         <p className="mb-10 max-w-xl text-xl leading-relaxed text-white/80 drop-shadow-[0_1px_8px_rgba(0,0,0,0.9)]">
-          Your digital presence is being evaluated by machines before people ever see you. If it&apos;s not built
-          for that, you&apos;re already behind.
+          In the new world of AI, most businesses are already falling behind.
+          We help you stay ahead.
         </p>
 
         {/* CTAs */}

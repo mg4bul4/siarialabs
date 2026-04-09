@@ -10,9 +10,9 @@ export function ManifestoSection() {
   return (
     <section
       ref={ref}
-      className={`${revealClass} flex min-h-screen flex-col items-stretch overflow-hidden bg-[#000000] lg:flex-row`}
+      className={`${revealClass} flex flex-col items-stretch overflow-hidden bg-[#000000] lg:flex-row`}
     >
-      <div className="relative h-[50vh] w-full overflow-hidden lg:h-auto lg:w-[60%]">
+      <div className="relative aspect-square w-full overflow-hidden lg:w-[60%]">
         <div className="absolute left-0 top-0 z-20 h-full w-px bg-brand-highlight" />
         <img
           src={IMG_MANIFESTO_HANDS}
@@ -28,10 +28,8 @@ export function ManifestoSection() {
             Ambitious visions require meticulous execution.
           </h2>
           <p className="font-body mb-16 max-w-md text-base leading-relaxed text-on-surface-variant">
-            Most companies have the ambition. Few have the structure. What looks like a visibility problem is
-            usually a clarity problem. What looks like a traffic problem is usually a positioning problem. We fix
-            both. We break down how your business is perceived, where it fails, and what&apos;s holding it back. Then
-            we rebuild it to perform under real conditions.
+            Most companies have ambition. Few have structure. We break down how your business is perceived,
+            where it fails, and what it takes to win your space.
           </p>
           <div className="group flex items-center gap-6">
             <div className="flex items-center gap-4">
