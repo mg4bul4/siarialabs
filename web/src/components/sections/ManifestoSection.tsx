@@ -41,9 +41,9 @@ export function ManifestoSection() {
           <div className="h-px w-12 bg-outline-variant/30" />
           <Link
             className="text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface/60 transition-colors hover:text-brand-highlight"
-            to="/solutions"
-          >
-            See how we can help
+                to="/contact"
+              >
+                See how we can help
           </Link>
         </div>
       </div>

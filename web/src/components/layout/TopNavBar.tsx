@@ -50,7 +50,7 @@ export function TopNavBar() {
 
         {/* CTA */}
         <div className="flex flex-1 justify-end">
-          <NeonPulseButton href="/solutions" className="px-6 py-2 text-xs">
+          <NeonPulseButton href="/contact" className="px-6 py-2 text-xs">
             Get Started
           </NeonPulseButton>
         </div>

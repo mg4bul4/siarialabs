@@ -15,7 +15,7 @@ export function CtaSection() {
             If your digital presence isn&apos;t built for how the internet works now, it won&apos;t hold up.
           </p>
           <div className="flex flex-col items-center justify-center gap-4 md:flex-row">
-            <NeonPulseButton href="/solutions" className="w-full px-10 py-5 text-xl md:w-auto">
+            <NeonPulseButton href="/contact" className="w-full px-10 py-5 text-xl md:w-auto">
               Let's Go
             </NeonPulseButton>
             <NeonPulseButton

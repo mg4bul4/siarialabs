@@ -137,7 +137,7 @@ export function HeroSection() {
         </p>
 
         <div className="flex flex-wrap items-center gap-4">
-          <NeonPulseButton href="/solutions" className="flex items-center gap-2 px-8 py-4 text-lg">
+          <NeonPulseButton href="/contact" className="flex items-center gap-2 px-8 py-4 text-lg">
             Let's Go
             <MaterialIcon name="arrow_forward" />
           </NeonPulseButton>
