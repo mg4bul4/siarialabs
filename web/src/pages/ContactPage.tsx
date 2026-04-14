@@ -32,34 +32,51 @@ const PROCESS_STEPS = [
 ];
 
 /** Full-page confirmation screen shown after form submission */
-function InquirySent() {
-  const [visible, setVisible] = useState(false);
+// Stagger delays (ms) for each element top-to-bottom
+const STAGGER_DELAYS = [80, 220, 380, 520, 660, 800, 960];
 
-  // Slight delay so the mount transition is visible
+function FadeUp({
+  children,
+  step,
+  index,
+  className = "",
+}: {
+  children: React.ReactNode;
+  step: number;
+  index: number;
+  className?: string;
+}) {
+  const shown = step > index;
+  return (
+    <div
+      className={`transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+        shown ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+      } ${className}`}
+    >
+      {children}
+    </div>
+  );
+}
+
+function InquirySent() {
+  const [step, setStep] = useState(0);
+
+  // Fire each step after its stagger delay
   useEffect(() => {
-    const t = setTimeout(() => setVisible(true), 60);
-    return () => clearTimeout(t);
+    const timers = STAGGER_DELAYS.map((delay, i) =>
+      setTimeout(() => setStep(i + 1), delay)
+    );
+    return () => timers.forEach(clearTimeout);
   }, []);
 
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-center bg-[#0e0e0e] px-12 transition-opacity duration-700 ${
-        visible ? "opacity-100" : "opacity-0"
-      }`}
-    >
-      {/* Structural grid container — fixed max-width, centered */}
+    <main className="flex min-h-screen flex-col items-center justify-center bg-[#0e0e0e] px-12">
       <div className="w-full max-w-xl">
 
-        {/* ── Checkmark ─────────────────────────────────────────────── */}
-        <div className="mb-16 flex justify-start">
+        {/* 0 — Checkmark */}
+        <FadeUp step={step} index={0} className="mb-16 flex justify-start">
           <div className="relative flex h-20 w-20 items-center justify-center border border-brand-highlight/30 bg-brand-highlight/5">
-            {/* Animated SVG checkmark */}
-            <svg
-              viewBox="0 0 40 40"
-              fill="none"
-              className="h-10 w-10"
-              aria-hidden="true"
-            >
+            <svg viewBox="0 0 40 40" fill="none" className="h-10 w-10" aria-hidden="true">
               <polyline
                 points="6,21 16,31 34,11"
                 stroke="rgb(114,255,112)"
@@ -69,50 +86,65 @@ function InquirySent() {
                 strokeDasharray="48"
                 strokeDashoffset="48"
                 style={{
-                  animation: "draw-check 0.6s cubic-bezier(0.22,1,0.36,1) 0.3s forwards",
+                  animation: step > 0
+                    ? "draw-check 0.6s cubic-bezier(0.22,1,0.36,1) 0.1s forwards"
+                    : "none",
                 }}
               />
             </svg>
-            {/* Corner accent — top-right */}
             <span className="absolute -right-px -top-px h-3 w-3 border-r-2 border-t-2 border-brand-highlight" />
-            {/* Corner accent — bottom-left */}
             <span className="absolute -bottom-px -left-px h-3 w-3 border-b-2 border-l-2 border-brand-highlight" />
           </div>
-        </div>
+        </FadeUp>
 
-        {/* ── Divider ───────────────────────────────────────────────── */}
-        <div className="mb-10 h-px w-full bg-outline-variant/20" />
+        {/* 1 — Top divider */}
+        <FadeUp step={step} index={1} className="mb-10">
+          <div className="h-px w-full bg-outline-variant/20" />
+        </FadeUp>
 
-        {/* ── Heading ───────────────────────────────────────────────── */}
-        <EyebrowLabel className="mb-5 block">Confirmation</EyebrowLabel>
-        <h1 className="font-headline mb-10 text-5xl font-extrabold leading-[0.95] tracking-tighter text-white md:text-6xl">
-          Your Inquiry<br />is on Its Way.
-        </h1>
+        {/* 2 — Eyebrow + heading */}
+        <FadeUp step={step} index={2} className="mb-10">
+          <EyebrowLabel className="mb-5 block">Confirmation</EyebrowLabel>
+          <h1 className="font-headline text-5xl font-extrabold leading-[0.95] tracking-tighter text-white md:text-6xl">
+            Your Inquiry<br />is on Its Way.
+          </h1>
+        </FadeUp>
 
-        {/* ── Divider ───────────────────────────────────────────────── */}
-        <div className="mb-10 h-px w-full bg-outline-variant/20" />
+        {/* 3 — Second divider */}
+        <FadeUp step={step} index={3} className="mb-10">
+          <div className="h-px w-full bg-outline-variant/20" />
+        </FadeUp>
 
-        {/* ── Body copy ─────────────────────────────────────────────── */}
-        <p className="mb-6 text-base leading-relaxed text-on-surface-variant">
-          Thank you for reaching out. We have received your project details. A dedicated member of
-          our design team is now reviewing your information to ensure a thoughtful and effective
-          collaboration. We pride ourselves on a transparent, frictionless process.
-        </p>
-        <p className="mb-16 text-sm font-medium uppercase tracking-widest text-on-surface/50">
-          We will get back to you with a detailed initial response within 24 hours.
-        </p>
+        {/* 4 — Body copy */}
+        <FadeUp step={step} index={4} className="mb-6">
+          <p className="text-base leading-relaxed text-on-surface-variant">
+            Thank you for reaching out. We have received your project details. A dedicated member of
+            our design team is now reviewing your information to ensure a thoughtful and effective
+            collaboration. We pride ourselves on a transparent, frictionless process.
+          </p>
+        </FadeUp>
 
-        {/* ── CTA ───────────────────────────────────────────────────── */}
-        <Link
-          to="/"
-          className="group inline-flex items-center gap-3 border border-brand-highlight/50 bg-[#0e0e0e] px-8 py-4 font-headline text-sm font-bold uppercase tracking-widest text-white transition-all duration-300 hover:bg-brand-highlight/10"
-        >
-          Return to Home
-          <MaterialIcon
-            name="arrow_right_alt"
-            className="transition-transform duration-300 group-hover:translate-x-1"
-          />
-        </Link>
+        {/* 5 — 24h line */}
+        <FadeUp step={step} index={5} className="mb-16">
+          <p className="text-sm font-medium uppercase tracking-widest text-on-surface/50">
+            We will get back to you with a detailed initial response within 24 hours.
+          </p>
+        </FadeUp>
+
+        {/* 6 — CTA */}
+        <FadeUp step={step} index={6}>
+          <Link
+            to="/"
+            className="group inline-flex items-center gap-3 border border-brand-highlight/50 bg-[#0e0e0e] px-8 py-4 font-headline text-sm font-bold uppercase tracking-widest text-white transition-all duration-300 hover:bg-brand-highlight/10"
+          >
+            Return to Home
+            <MaterialIcon
+              name="arrow_right_alt"
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            />
+          </Link>
+        </FadeUp>
+
       </div>
     </main>
   );
