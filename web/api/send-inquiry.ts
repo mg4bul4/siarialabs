@@ -4,7 +4,12 @@ import { Resend } from "resend";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  if (req.method !== "POST") return res.status(405).end();
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  if (req.method === "OPTIONS") return res.status(204).end();
+  if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed." });
 
   const { name, email, subject, message } = req.body as {
     name: string;
