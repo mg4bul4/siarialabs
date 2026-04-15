@@ -173,35 +173,15 @@ export default function ContactPage() {
     setSendError("");
 
     try {
-      const res = await fetch("https://api.resend.com/emails", {
+      const res = await fetch("/api/send-inquiry", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${import.meta.env.VITE_RESEND_API_KEY}`,
-        },
-        body: JSON.stringify({
-          from: "SIARIA LABS <onboarding@resend.dev>",
-          to: [import.meta.env.VITE_CONTACT_EMAIL],
-          reply_to: formState.email,
-          subject: `New Inquiry: ${formState.subject} — ${formState.name}`,
-          html: `
-            <div style="font-family:sans-serif;max-width:600px;margin:0 auto;color:#111;">
-              <h2 style="margin-bottom:4px;">New Inquiry from SIARIA LABS</h2>
-              <hr style="border:none;border-top:1px solid #e5e5e5;margin:16px 0;" />
-              <p><strong>Name:</strong> ${formState.name}</p>
-              <p><strong>Email:</strong> ${formState.email}</p>
-              <p><strong>Subject:</strong> ${formState.subject}</p>
-              <hr style="border:none;border-top:1px solid #e5e5e5;margin:16px 0;" />
-              <p><strong>Message:</strong></p>
-              <p style="white-space:pre-wrap;">${formState.message}</p>
-            </div>
-          `,
-        }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formState),
       });
 
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
-        throw new Error((body as { message?: string }).message ?? "Failed to send.");
+        throw new Error((body as { error?: string }).error ?? "Failed to send.");
       }
 
       setSubmitted(true);
