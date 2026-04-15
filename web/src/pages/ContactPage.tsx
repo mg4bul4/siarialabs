@@ -158,6 +158,8 @@ export default function ContactPage() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -165,9 +167,49 @@ export default function ContactPage() {
     setFormState((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSending(true);
+    setSendError("");
+
+    try {
+      const res = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${import.meta.env.VITE_RESEND_API_KEY}`,
+        },
+        body: JSON.stringify({
+          from: "SIARIA LABS <onboarding@resend.dev>",
+          to: [import.meta.env.VITE_CONTACT_EMAIL],
+          reply_to: formState.email,
+          subject: `New Inquiry: ${formState.subject} — ${formState.name}`,
+          html: `
+            <div style="font-family:sans-serif;max-width:600px;margin:0 auto;color:#111;">
+              <h2 style="margin-bottom:4px;">New Inquiry from SIARIA LABS</h2>
+              <hr style="border:none;border-top:1px solid #e5e5e5;margin:16px 0;" />
+              <p><strong>Name:</strong> ${formState.name}</p>
+              <p><strong>Email:</strong> ${formState.email}</p>
+              <p><strong>Subject:</strong> ${formState.subject}</p>
+              <hr style="border:none;border-top:1px solid #e5e5e5;margin:16px 0;" />
+              <p><strong>Message:</strong></p>
+              <p style="white-space:pre-wrap;">${formState.message}</p>
+            </div>
+          `,
+        }),
+      });
+
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error((body as { message?: string }).message ?? "Failed to send.");
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setSendError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
 
   if (submitted) return <InquirySent />;
@@ -316,16 +358,24 @@ export default function ContactPage() {
                       />
                     </div>
 
+                    {/* Error message */}
+                    {sendError && (
+                      <p className="text-sm text-red-400">{sendError}</p>
+                    )}
+
                     {/* Submit */}
                     <button
                       type="submit"
-                      className="group flex w-full items-center justify-center gap-3 border border-brand-highlight/50 bg-[#0e0e0e] px-8 py-4 font-headline text-sm font-bold uppercase tracking-widest text-white transition-all duration-300 hover:bg-brand-highlight/10 pulse-animation"
+                      disabled={sending}
+                      className="group flex w-full items-center justify-center gap-3 border border-brand-highlight/50 bg-[#0e0e0e] px-8 py-4 font-headline text-sm font-bold uppercase tracking-widest text-white transition-all duration-300 hover:bg-brand-highlight/10 pulse-animation disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      Send Inquiry
-                      <MaterialIcon
-                        name="arrow_right_alt"
-                        className="transition-transform duration-300 group-hover:translate-x-1"
-                      />
+                      {sending ? "Sending…" : "Send Inquiry"}
+                      {!sending && (
+                        <MaterialIcon
+                          name="arrow_right_alt"
+                          className="transition-transform duration-300 group-hover:translate-x-1"
+                        />
+                      )}
                     </button>
                   </form>
               </div>
