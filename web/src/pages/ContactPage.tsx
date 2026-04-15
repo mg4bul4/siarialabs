@@ -181,7 +181,8 @@ export default function ContactPage() {
 
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
-        throw new Error((body as { error?: string }).error ?? "Failed to send.");
+        const msg = (body as { error?: string }).error;
+        throw new Error(msg ? `Send failed: ${msg}` : `Server error (${res.status}). Please try again.`);
       }
 
       setSubmitted(true);
