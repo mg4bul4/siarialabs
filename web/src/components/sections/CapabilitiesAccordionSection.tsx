@@ -50,17 +50,17 @@ export function CapabilitiesAccordionSection() {
       id="capabilities-accordion"
       style={{ paddingBlock: "var(--spacing-section-md)" }}
     >
-      <div className="mx-auto max-w-[1440px] px-12">
-        <div className="mb-16 text-center">
-          <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-tertiary md:text-5xl">
+      <div className="mx-auto max-w-[1440px] px-5 sm:px-8 md:px-12">
+        <div className="mb-10 text-center md:mb-16">
+          <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-tertiary sm:text-4xl md:mb-6 md:text-5xl">
             Building a Digital Presence That Holds Up
           </h2>
-          <p className="mx-auto max-w-4xl text-xl font-normal tracking-tight text-on-surface-variant md:text-2xl">
+          <p className="mx-auto max-w-4xl text-base font-normal tracking-tight text-on-surface-variant sm:text-lg md:text-xl lg:text-2xl">
             Your foundation determines whether you get ignored or chosen. We make sure it holds.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
+        <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-12">
           {/* Accordion list */}
           <div className="space-y-3">
             {ACCORDION_ITEMS.map((item) => {
@@ -84,32 +84,32 @@ export function CapabilitiesAccordionSection() {
                   <button
                     type="button"
                     onClick={() => setActiveId(item.id)}
-                    className="flex w-full items-center justify-between p-6 text-left md:p-8"
+                    className="flex min-h-[64px] w-full items-center justify-between p-5 text-left sm:p-6 md:p-8"
                     aria-expanded={isOpen}
                   >
-                    <div className="flex items-center gap-6">
+                    <div className="flex items-center gap-4 sm:gap-6">
                       <div
-                        className={`flex h-12 w-12 items-center justify-center transition-colors duration-300 ${
+                        className={`flex h-10 w-10 flex-shrink-0 items-center justify-center transition-colors duration-300 sm:h-12 sm:w-12 ${
                           isOpen ? "bg-brand-highlight text-black" : "bg-surface-container-highest text-primary"
                         }`}
                       >
-                        <MaterialIcon name={item.icon} className="text-2xl" />
+                        <MaterialIcon name={item.icon} className="text-xl sm:text-2xl" />
                       </div>
-                      <h4 className="text-xl font-bold text-tertiary">{item.title}</h4>
+                      <h4 className="text-base font-bold text-tertiary sm:text-xl">{item.title}</h4>
                     </div>
                     <MaterialIcon
                       name="expand_more"
-                      className={`text-outline transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                      className={`ml-3 flex-shrink-0 text-outline transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
                     />
                   </button>
 
                   {/* Expandable body */}
                   <div
                     className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                      isOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+                      isOpen ? "max-h-48 opacity-100" : "max-h-0 opacity-0"
                     }`}
                   >
-                    <p className="px-6 pb-8 leading-relaxed text-on-surface-variant md:px-8 md:pl-24">
+                    <p className="px-5 pb-6 text-sm leading-relaxed text-on-surface-variant sm:px-6 sm:pb-8 sm:text-base md:px-8 md:pl-24">
                       {item.body}
                     </p>
                   </div>
@@ -118,8 +118,8 @@ export function CapabilitiesAccordionSection() {
             })}
           </div>
 
-          {/* Image panel — updates with active accordion item */}
-          <div className="sticky top-28 overflow-hidden border border-outline-variant/10 bg-surface-container-highest lg:h-[520px]">
+          {/* Image panel — sticky on desktop, hidden on mobile (content visible in accordion body) */}
+          <div className="hidden overflow-hidden border border-outline-variant/10 bg-surface-container-highest lg:sticky lg:top-28 lg:block lg:h-[520px]">
             {ACCORDION_ITEMS.map((item) => (
               <div
                 key={item.id}
@@ -139,7 +139,6 @@ export function CapabilitiesAccordionSection() {
                 </div>
               </div>
             ))}
-            {/* Fallback sizing element so the container has height before images load */}
             <div className="h-full w-full" aria-hidden />
           </div>
         </div>

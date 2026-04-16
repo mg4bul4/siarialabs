@@ -167,7 +167,7 @@ function SolutionCard({
             {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
           </div>
 
-          <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-16 px-6 md:flex-row md:px-12">
+          <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-8 px-5 sm:gap-12 sm:px-8 md:flex-row md:gap-16 md:px-12">
 
             {/* Image — always visible */}
             <div className={`w-full md:w-1/2 ${imageLeft ? "md:order-1" : "md:order-2"}`}>
@@ -182,19 +182,19 @@ function SolutionCard({
             </div>
 
             {/* Text */}
-            <div className={`w-full space-y-8 md:w-1/2 ${imageLeft ? "md:order-2" : "md:order-1"}`}>
-              <div className="space-y-4">
+            <div className={`w-full space-y-6 md:w-1/2 md:space-y-8 ${imageLeft ? "md:order-2" : "md:order-1"}`}>
+              <div className="space-y-3 md:space-y-4">
                 <EyebrowLabel>{eyebrow}</EyebrowLabel>
-                <h3 className="font-headline text-4xl font-extrabold text-white md:text-6xl">
+                <h3 className="font-headline text-3xl font-extrabold text-white sm:text-4xl md:text-5xl lg:text-6xl">
                   {heading}
                 </h3>
-                <p className="text-on-surface text-xl italic opacity-80">
+                <p className="text-on-surface text-base italic opacity-80 sm:text-lg md:text-xl">
                   &quot;{quote}&quot;
                 </p>
               </div>
 
-              {/* Bullets — scroll-driven, start hidden, slide in from right */}
-              <ul className="space-y-4 text-lg font-medium text-on-surface-variant">
+              {/* Bullets — scroll-driven on desktop; always visible on mobile */}
+              <ul className="space-y-3 text-base font-medium text-on-surface-variant md:space-y-4 md:text-lg">
                 {items.map((item, i) => (
                   <BulletItem
                     key={item}
@@ -332,7 +332,7 @@ export default function SolutionsPage() {
             >
               <Link
                 to="/contact"
-                className="font-headline inline-block rounded-lg bg-[#72FF70] px-10 py-5 text-lg font-bold uppercase tracking-tighter text-surface-container-lowest neon-glow transition-all hover:brightness-110"
+                className="font-headline inline-flex min-h-[56px] items-center rounded-lg bg-[#72FF70] px-10 py-4 text-lg font-bold uppercase tracking-tighter text-surface-container-lowest neon-glow transition-all hover:brightness-110"
               >
                 Let's Go
               </Link>
@@ -341,11 +341,11 @@ export default function SolutionsPage() {
         </section>
 
         {/* ── Intro ─────────────────────────────────────────────────────── */}
-        <section className="overflow-hidden bg-surface-container-low px-6 py-32 md:px-12">
+        <section className="overflow-hidden bg-surface-container-low px-5 py-16 sm:px-8 sm:py-24 md:px-12 md:py-32">
           <div className="mx-auto grid max-w-7xl items-center gap-20 md:grid-cols-2">
             <div className="space-y-8">
               <FadeUp delay={0}>
-                <h2 className="font-headline text-4xl font-bold leading-tight tracking-tight text-white md:text-5xl">
+                <h2 className="font-headline text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl md:text-4xl lg:text-5xl">
                   Most agencies deliver one-time outputs.{" "}
                   <span className="inline-block rounded-sm bg-[#72FF70] px-3 py-1 text-black">
                     We build systems.
@@ -353,7 +353,7 @@ export default function SolutionsPage() {
                 </h2>
               </FadeUp>
               <FadeUp delay={0.15}>
-                <p className="font-body text-xl leading-relaxed text-on-surface-variant">
+                <p className="font-body text-base leading-relaxed text-on-surface-variant sm:text-lg md:text-xl">
                   We build systems that determine whether you&apos;re seen, trusted, or ignored. Every engagement is
                   structured around one goal: making your business visible in modern discovery environments.
                 </p>
@@ -379,24 +379,24 @@ export default function SolutionsPage() {
         </div>
 
         {/* ── CTA ───────────────────────────────────────────────────────── */}
-        <section className="relative overflow-hidden bg-surface-container-lowest px-6 py-48 text-center">
+        <section className="relative overflow-hidden bg-surface-container-lowest px-5 py-24 text-center sm:px-8 sm:py-32 md:py-48">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_#72FF70_0%,_transparent_70%)] opacity-10" />
-          <div className="relative z-10 space-y-12">
+          <div className="relative z-10 space-y-8 md:space-y-12">
             <FadeUp>
-              <h2 className="font-headline text-6xl font-extrabold tracking-tighter text-white md:text-8xl">
+              <h2 className="font-headline text-5xl font-extrabold tracking-tighter text-white sm:text-6xl md:text-7xl lg:text-8xl">
                 Ready for impact?
               </h2>
             </FadeUp>
             <FadeUp delay={0.18}>
               <Link
                 to="/contact"
-                className="font-headline inline-block rounded-lg bg-[#72FF70] px-12 py-6 text-xl font-black uppercase tracking-tighter text-surface-container-lowest neon-glow transition-all hover:brightness-110 active:scale-95"
+                className="font-headline inline-flex min-h-[56px] items-center rounded-lg bg-[#72FF70] px-8 py-4 text-lg font-black uppercase tracking-tighter text-surface-container-lowest neon-glow transition-all hover:brightness-110 active:scale-95 sm:px-12 sm:py-6 sm:text-xl"
               >
                 Let's Go
               </Link>
             </FadeUp>
             <FadeUp delay={0.32}>
-              <p className="font-body mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-on-surface-variant opacity-80 md:text-xl">
+              <p className="font-body mx-auto mt-6 max-w-2xl text-base leading-relaxed text-on-surface-variant opacity-80 sm:text-lg md:mt-8 md:text-xl">
                 High-impact transitions don&apos;t have to be high-stress.
               </p>
             </FadeUp>
@@ -404,15 +404,15 @@ export default function SolutionsPage() {
         </section>
 
         {/* ── Footer ────────────────────────────────────────────────────── */}
-        <footer className="flex w-full flex-col items-center justify-between gap-8 border-t border-[#1f2020] bg-[#0e0e0e] px-12 py-16 md:flex-row">
-          <div className="flex flex-col items-center gap-4 md:items-start">
+        <footer className="flex w-full flex-col items-center justify-between gap-6 border-t border-[#1f2020] bg-[#0e0e0e] px-5 py-12 sm:px-8 md:flex-row md:gap-8 md:px-12 md:py-16">
+          <div className="flex flex-col items-center gap-2 md:items-start">
             <div className="text-2xl font-black text-[#c6c6c7]">SIARIA LABS</div>
             <p className="font-body text-xs uppercase tracking-widest text-[#c6c6c7]">Stay visible. Stay relevant.</p>
           </div>
-          <div className="flex items-center gap-8">
-            <a className="font-body text-xs uppercase tracking-widest text-outline transition-colors hover:text-[#c6c6c7]" href="#!">Privacy Policy</a>
-            <a className="font-body text-xs uppercase tracking-widest text-outline transition-colors hover:text-[#c6c6c7]" href="#!">Terms of Service</a>
-            <a className="font-body text-xs uppercase tracking-widest text-outline transition-colors hover:text-[#c6c6c7]" href="#!">LinkedIn</a>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+            <a className="font-body min-h-[44px] flex items-center text-xs uppercase tracking-widest text-outline transition-colors hover:text-[#c6c6c7]" href="#!">Privacy Policy</a>
+            <a className="font-body min-h-[44px] flex items-center text-xs uppercase tracking-widest text-outline transition-colors hover:text-[#c6c6c7]" href="#!">Terms of Service</a>
+            <a className="font-body min-h-[44px] flex items-center text-xs uppercase tracking-widest text-outline transition-colors hover:text-[#c6c6c7]" href="#!">LinkedIn</a>
           </div>
           <div className="font-body text-xs uppercase tracking-widest text-outline">© 2025 SIARIA LABS.</div>
         </footer>

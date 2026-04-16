@@ -70,7 +70,7 @@ function InquirySent() {
   }, []);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-[#0e0e0e] px-12">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-[#0e0e0e] px-5 sm:px-8 md:px-12">
       <div className="w-full max-w-xl">
 
         {/* 0 — Checkmark */}
@@ -105,7 +105,7 @@ function InquirySent() {
         {/* 2 — Eyebrow + heading */}
         <FadeUp step={step} index={2} className="mb-10">
           <EyebrowLabel className="mb-5 block">Confirmation</EyebrowLabel>
-          <h1 className="font-headline text-5xl font-extrabold leading-[0.95] tracking-tighter text-white md:text-6xl">
+          <h1 className="font-headline text-4xl font-extrabold leading-[0.95] tracking-tighter text-white sm:text-5xl md:text-6xl">
             Your Inquiry<br />is on Its Way.
           </h1>
         </FadeUp>
@@ -135,7 +135,7 @@ function InquirySent() {
         <FadeUp step={step} index={6}>
           <Link
             to="/"
-            className="group inline-flex items-center gap-3 border border-brand-highlight/50 bg-[#0e0e0e] px-8 py-4 font-headline text-sm font-bold uppercase tracking-widest text-white transition-all duration-300 hover:bg-brand-highlight/10"
+            className="group inline-flex min-h-[52px] items-center gap-3 border border-brand-highlight/50 bg-[#0e0e0e] px-8 py-4 font-headline text-sm font-bold uppercase tracking-widest text-white transition-all duration-300 hover:bg-brand-highlight/10"
           >
             Return to Home
             <MaterialIcon
@@ -199,17 +199,17 @@ export default function ContactPage() {
     <>
       <main className="min-h-screen bg-[#0e0e0e] pt-20 text-on-surface selection:bg-brand-highlight/30">
         {/* ── Hero ──────────────────────────────────────────────────────── */}
-        <section className="relative overflow-hidden px-12 pb-24 pt-24">
+        <section className="relative overflow-hidden px-5 pb-16 pt-20 sm:px-8 sm:pb-20 sm:pt-24 md:px-12 md:pb-24 md:pt-24">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_rgba(114,255,112,0.05)_0%,_transparent_60%)]" />
           <div className="relative mx-auto max-w-[1440px]">
-            <EyebrowLabel className="mb-6 block">Get in touch</EyebrowLabel>
-            <h1 className="font-headline max-w-3xl text-6xl font-extrabold leading-[0.95] tracking-tighter text-white md:text-7xl">
+            <EyebrowLabel className="mb-5 block md:mb-6">Get in touch</EyebrowLabel>
+            <h1 className="font-headline max-w-3xl text-4xl font-extrabold leading-[0.95] tracking-tighter text-white sm:text-5xl md:text-6xl lg:text-7xl">
               Human Craft.{" "}
               <span className="text-brand-highlight">Clear Vision.</span>
               <br />
               Simple Process.
             </h1>
-            <p className="mt-8 max-w-xl text-xl leading-relaxed text-on-surface-variant">
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-on-surface-variant sm:text-lg md:mt-8 md:text-xl">
               SIARIA LABS is a precision-led design collective. We strip away the noise to deliver
               high-quality digital experiences that prioritize clarity and functional elegance.
             </p>
@@ -217,16 +217,16 @@ export default function ContactPage() {
         </section>
 
         {/* ── Process + Form ─────────────────────────────────────────────── */}
-        <section className="px-12 pb-32">
-          <div className="mx-auto grid max-w-[1440px] gap-20 lg:grid-cols-2">
+        <section className="px-5 pb-20 sm:px-8 sm:pb-24 md:px-12 md:pb-32">
+          <div className="mx-auto grid max-w-[1440px] gap-12 lg:gap-20 lg:grid-cols-2">
 
             {/* Process steps */}
             <RevealDiv className="space-y-0">
-              <h2 className="font-headline mb-6 text-2xl font-bold uppercase tracking-widest text-on-surface-variant">
+              <h2 className="font-headline mb-5 text-xl font-bold uppercase tracking-widest text-on-surface-variant md:mb-6 md:text-2xl">
                 The Process
               </h2>
               {/* Status badge */}
-              <div className="mb-12 inline-flex items-center gap-3 border border-brand-highlight/20 bg-brand-highlight/5 px-5 py-3">
+              <div className="mb-8 inline-flex items-center gap-3 border border-brand-highlight/20 bg-brand-highlight/5 px-4 py-2 md:mb-12 md:px-5 md:py-3">
                 <span className="h-2 w-2 rounded-full bg-brand-highlight pulse-animation" />
                 <span className="font-headline text-xs font-bold uppercase tracking-widest text-brand-highlight">
                   Currently accepting projects
@@ -236,22 +236,22 @@ export default function ContactPage() {
                 {PROCESS_STEPS.map((step, i) => (
                   <div
                     key={step.number}
-                    className={`group flex gap-8 py-10 ${
+                    className={`group flex gap-5 py-7 sm:gap-8 sm:py-10 ${
                       i < PROCESS_STEPS.length - 1 ? "border-b border-outline-variant/10" : ""
                     }`}
                   >
                     {/* Step number */}
                     <div className="flex-shrink-0">
-                      <span className="font-headline text-4xl font-extrabold tracking-tighter text-brand-highlight/30 transition-colors duration-300 group-hover:text-brand-highlight">
+                      <span className="font-headline text-3xl font-extrabold tracking-tighter text-brand-highlight/30 transition-colors duration-300 group-hover:text-brand-highlight sm:text-4xl">
                         {step.number}
                       </span>
                     </div>
                     {/* Step content */}
                     <div>
-                      <h3 className="font-headline mb-3 text-xl font-bold text-white">
+                      <h3 className="font-headline mb-2 text-lg font-bold text-white md:mb-3 md:text-xl">
                         {step.title}
                       </h3>
-                      <p className="text-base leading-relaxed text-on-surface-variant">
+                      <p className="text-sm leading-relaxed text-on-surface-variant md:text-base">
                         {step.body}
                       </p>
                     </div>
@@ -263,7 +263,7 @@ export default function ContactPage() {
 
             {/* Contact form */}
             <RevealDiv>
-              <div className="border border-outline-variant/10 bg-surface-container-high p-10">
+              <div className="border border-outline-variant/10 bg-surface-container-high p-6 sm:p-8 md:p-10">
                 <h2 className="font-headline mb-2 text-3xl font-extrabold tracking-tighter text-white">
                   Start a conversation
                 </h2>

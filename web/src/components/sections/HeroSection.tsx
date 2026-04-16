@@ -117,39 +117,39 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_40%,_rgba(114,255,112,0.04)_0%,_transparent_65%)]" />
 
       {/* ── Content ──────────────────────────────────────────────────── */}
-      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col items-start px-12 pb-32 pt-40">
-        <div className="mb-8 inline-flex items-center gap-2 border border-outline-variant/30 bg-black/40 px-3 py-1 backdrop-blur-sm">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col items-start px-5 pb-24 pt-32 sm:px-8 sm:pb-28 sm:pt-36 md:px-12 md:pb-32 md:pt-40">
+        <div className="mb-6 inline-flex items-center gap-2 border border-outline-variant/30 bg-black/40 px-3 py-1 backdrop-blur-sm sm:mb-8">
           <span className="h-2 w-2 rounded-full bg-brand-highlight" />
           <span className="text-xs font-medium uppercase tracking-wider text-on-surface-variant">
             Start Now For Free
           </span>
         </div>
 
-        <h1 className="mb-6 max-w-3xl text-7xl font-extrabold leading-[0.9] tracking-tighter text-white drop-shadow-[0_2px_24px_rgba(0,0,0,0.8)] md:text-8xl">
+        <h1 className="mb-5 max-w-3xl text-5xl font-extrabold leading-[0.92] tracking-tighter text-white drop-shadow-[0_2px_24px_rgba(0,0,0,0.8)] sm:text-6xl md:mb-6 md:text-7xl lg:text-8xl">
           Radical <span className="text-brand-highlight">Clarity.</span>
           <br />
           Measured Impact.
         </h1>
 
-        <p className="mb-10 max-w-xl text-xl leading-relaxed text-white/80 drop-shadow-[0_1px_8px_rgba(0,0,0,0.9)]">
+        <p className="mb-8 max-w-xl text-base leading-relaxed text-white/80 drop-shadow-[0_1px_8px_rgba(0,0,0,0.9)] sm:text-lg md:mb-10 md:text-xl">
           In the new world of AI, most businesses are already falling behind.
           We help you stay ahead.
         </p>
 
-        <div className="flex flex-wrap items-center gap-4">
-          <NeonPulseButton href="/contact" className="flex items-center gap-2 px-8 py-4 text-lg">
+        <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+          <NeonPulseButton href="/contact" className="flex min-h-[52px] w-full items-center justify-center gap-2 px-8 py-3 text-base sm:w-auto sm:min-h-[48px] sm:text-lg">
             Let's Go
             <MaterialIcon name="arrow_forward" />
           </NeonPulseButton>
           <NeonPulseButton
             href="/solutions"
-            className="border-white/20 bg-black/30 px-8 py-4 text-lg backdrop-blur-sm hover:border-white/40 hover:bg-white/10"
+            className="min-h-[52px] w-full border-white/20 bg-black/30 px-8 py-3 text-base backdrop-blur-sm hover:border-white/40 hover:bg-white/10 sm:w-auto sm:min-h-[48px] sm:text-lg"
           >
             View Solutions
           </NeonPulseButton>
         </div>
 
-        <p className="mt-10 text-sm font-light uppercase tracking-[0.3em] text-white/50">
+        <p className="mt-8 text-xs font-light uppercase tracking-[0.25em] text-white/50 sm:mt-10 sm:text-sm sm:tracking-[0.3em]">
           Built for how modern discovery works. Not how it used to.
         </p>
       </div>
