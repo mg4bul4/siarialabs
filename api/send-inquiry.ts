@@ -24,7 +24,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   const { data, error } = await resend.emails.send({
     from: "SIARIA LABS <hello@siarialabs.com>",
-    to: ["team@siarialabs.com"],
+    to: ["inbox@siarialabs.com"],
     reply_to: email,
     subject: `New Inquiry: ${subject} — ${name}`,
     html: `
