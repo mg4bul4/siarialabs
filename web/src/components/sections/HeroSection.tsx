@@ -118,13 +118,6 @@ export function HeroSection() {
 
       {/* ── Content ──────────────────────────────────────────────────── */}
       <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col items-start px-5 pb-24 pt-32 sm:px-8 sm:pb-28 sm:pt-36 md:px-12 md:pb-32 md:pt-40">
-        <div className="mb-6 inline-flex items-center gap-2 border border-outline-variant/30 bg-black/40 px-3 py-1 backdrop-blur-sm sm:mb-8">
-          <span className="h-2 w-2 rounded-full bg-brand-highlight" />
-          <span className="text-xs font-medium uppercase tracking-wider text-on-surface-variant">
-            Start Now For Free
-          </span>
-        </div>
-
         <h1 className="mb-5 max-w-3xl text-5xl font-extrabold leading-[0.92] tracking-tighter text-white drop-shadow-[0_2px_24px_rgba(0,0,0,0.8)] sm:text-6xl md:mb-6 md:text-7xl lg:text-8xl">
           Radical <span className="text-brand-highlight">Clarity.</span>
           <br />
@@ -136,21 +129,13 @@ export function HeroSection() {
           We help you stay ahead.
         </p>
 
-        <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
-          <NeonPulseButton href="/contact" className="flex min-h-[52px] w-full items-center justify-center gap-2 px-8 py-3 text-base sm:w-auto sm:min-h-[48px] sm:text-lg">
-            Let's Go
-            <MaterialIcon name="arrow_forward" />
-          </NeonPulseButton>
-          <NeonPulseButton
-            href="/solutions"
-            className="min-h-[52px] w-full border-white/20 bg-black/30 px-8 py-3 text-base backdrop-blur-sm hover:border-white/40 hover:bg-white/10 sm:w-auto sm:min-h-[48px] sm:text-lg"
-          >
-            View Solutions
-          </NeonPulseButton>
-        </div>
+        <NeonPulseButton href="/contact" className="flex min-h-[52px] items-center justify-center gap-2 px-8 py-3 text-base sm:min-h-[48px] sm:text-lg">
+          Let's Go
+          <MaterialIcon name="arrow_forward" />
+        </NeonPulseButton>
 
         <p className="mt-8 text-xs font-light uppercase tracking-[0.25em] text-white/50 sm:mt-10 sm:text-sm sm:tracking-[0.3em]">
-          Built for how modern discovery works. Not how it used to.
+          For how modern discovery works. Not how it used to.
         </p>
       </div>
 
